@@ -1,10 +1,8 @@
-
-
 import { StatusBar } from 'expo-status-bar';
 import React, { useEffect } from 'react';
 import { StyleSheet, View, ScrollView } from 'react-native';
-import { getPartners } from "./lib/partnersService";
-import PartnerCard from './components/PartnerCard'; // <-- Paso 1: Importar el componente
+import { getPartners } from "../lib/partnersService";
+import PartnerCard from './PartnerCard'; // <-- Importa el nuevo componente
 
 export default function Main() {
   const [partners, setPartners] = React.useState([]);
@@ -27,10 +25,9 @@ export default function Main() {
       <StatusBar style="auto" /> 
       <ScrollView>
         {partners.map(partner => (
-          // <-- Paso 2: Llamar al componente dentro del 'map'
           <PartnerCard 
             key={partner.id} 
-            partner={partner} // <-- Se pasa el objeto 'partner' como una prop
+            partner={partner} // <-- Pasa el objeto 'partner' como una prop
           />
         ))}
       </ScrollView>
